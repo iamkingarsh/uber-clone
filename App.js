@@ -34,8 +34,8 @@ export default function App() {
           name="MapScreen"
           component={MapScreen}
           options={{
-            headerShown: true,
-            headerBlurEffect: 'extraLight',
+            headerShown: false,
+            headerBlurEffect: ' light',
             headerTintColor: '#000',
             headerBackTitle : 'Back',
             headerLargeTitle: true,
