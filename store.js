@@ -35,3 +35,5 @@ store.dispatch(incremented())
 // {value: 2}
 store.dispatch(decremented())
 // {value: 1}
+
+export default store
