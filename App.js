@@ -57,6 +57,7 @@ export default function App() {
             headerLargeTitleShadowVisible: false,
             headerShadowVisible: false,
           }}
+            
           />
          
         </Stack.Navigator>

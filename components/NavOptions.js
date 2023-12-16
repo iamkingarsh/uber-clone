@@ -2,7 +2,9 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements/dist/icons/Icon";
+import { useSelector } from "react-redux";
 import tw from "tailwind-react-native-classnames";
+import { selectOrigin } from "../slices/navSlice";
 
 const data = [
     {
@@ -21,6 +23,7 @@ const data = [
 
 const NavOptions = () => {
     const navigation = useNavigation();
+    const origin = useSelector(selectOrigin)
     return (
         <View>
             <FlatList
@@ -29,17 +32,23 @@ const NavOptions = () => {
                 horizontal
                 renderItem={({ item }) => (
                     <TouchableOpacity
-                        onPress={() => navigation.navigate(item.screen as never)}
+                        onPress={() => navigation.navigate(item.screen)}
+                        disabled={!origin && item.id == '123'}
                         style={tw`p-2 pl-6 rounded-md pb-8 pt-4 bg-gray-200 m-2 w-40`}>
-                        <Image
-                            style={{ width: 120, height: 120, resizeMode: "contain" }}
-                            source={{ uri: item.image }}
-                        />
-                        <Text style={tw`mt-4 text-xl font-semibold`}>{item.title}</Text>
+                        <View
+                            style={tw`${!origin && item.id == '123' && "opacity-20"}`}
+                        >
 
-                        <Icon
-                            style={tw`p-2 bg-black rounded-full w-8 h-8 items-center justify-center  mt-4`}
-                            name="arrowright" size={15} color="white" type="antdesign" />
+                            <Image
+                                style={{ width: 120, height: 120, resizeMode: "contain" }}
+                                source={{ uri: item.image }}
+                            />
+                            <Text style={tw`mt-4 text-xl font-semibold`}>{item.title}</Text>
+
+                            <Icon
+                                style={tw`p-2 bg-black rounded-full w-8 h-8 items-center justify-center  mt-4`}
+                                name="arrowright" size={15} color="white" type="antdesign" />
+                        </View>
 
                     </TouchableOpacity>
                 )}

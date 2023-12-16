@@ -37,14 +37,18 @@ const HomeScreen = () => {
                         placeholder='Where From?'
                         enablePoweredByContainer={false}
                         minLength={2}
+                        fetchDetails={true}
                         onPress={(data: any, details: any = null) => {
-                            dispatch(setOrigin({
-                                location: details.geomertry,
-                                description: data.description
-                            }))
 
-                            dispatch(setDestination(null))
+                            dispatch(setOrigin({
+                                location: details.geometry.location,
+                                description: data.description
+                            }));
+                            dispatch(setDestination(null));
+
                         }}
+
+
 
                         styles={{
 
