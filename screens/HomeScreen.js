@@ -7,6 +7,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice';
+import NavFavourites from '../components/NavFavourites';
 
 const colorScheme = Appearance.getColorScheme();
 const isDarkMode = colorScheme === 'dark';
@@ -38,7 +39,7 @@ const HomeScreen = () => {
                         enablePoweredByContainer={false}
                         minLength={2}
                         fetchDetails={true}
-                        onPress={(data: any, details: any = null) => {
+                        onPress={(data, details ) => {
 
                             dispatch(setOrigin({
                                 location: details.geometry.location,
@@ -80,6 +81,7 @@ const HomeScreen = () => {
 
 
                     <NavOptions />
+                    <NavFavourites />
                 </View>
             </View>
 
