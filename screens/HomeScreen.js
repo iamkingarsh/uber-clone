@@ -39,6 +39,8 @@ const HomeScreen = () => {
                         enablePoweredByContainer={false}
                         minLength={2}
                         fetchDetails={true}
+                      
+                        
                         onPress={(data, details ) => {
 
                             dispatch(setOrigin({
@@ -61,22 +63,15 @@ const HomeScreen = () => {
                             textInput: {
                                 fontSize: 16,
                             },
-                            separator: {
-                                backgroundColor: '#efefef',
-                                height: 1,
-                            },
-                            row: {
-                                padding: 20,
-                                height: 58,
-                                borderRadius: 10,
-                                marginBottom: 10,
-                            },
+                           
 
                         }}
+                        
                         query={{
                             key: GOOGLE_MAPS_APIKEY,
                             language: 'en',
                         }}
+                        
                     />
 
 
