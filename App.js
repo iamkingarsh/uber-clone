@@ -17,7 +17,9 @@ export default function App() {
       
       <NavigationContainer>
         <SafeAreaProvider>
-          <KeyboardAvoidingView style={{flex: 1}} behavior='padding' keyboardVerticalOffset={Platform.OS === 'ios' ? -64 : 0}>
+          <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS  === 'ios' ? 'padding' : 'height'}
+          keyboardVerticalOffset={Platform.OS === 'ios' ? -64 : 0}
+          >
 
           
         <Stack.Navigator initialRouteName='Home'>
@@ -45,7 +47,7 @@ export default function App() {
             headerBackTitle : 'Back',
             headerLargeTitle: true,
             headerTitle: 'Get a ride',
-            // headerLargeTitleShadowVisible: false,
+            headerLargeTitleShadowVisible: false,
             headerShadowVisible: false,
           }}
           />
